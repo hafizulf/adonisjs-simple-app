@@ -1,5 +1,7 @@
 'use strict'
 
+const VillageController = require('../app/Controllers/Http/VillageController')
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -17,3 +19,5 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+
+Route.get('/village', 'VillageController.index')

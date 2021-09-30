@@ -1,0 +1,37 @@
+@layout('layouts/main')
+
+@section('body')
+<section>
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h1>Informasi Desa</h1>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <td>#</td>
+                  <td>Village name</td>
+                  <td>Actions</td>
+                </tr>
+              </thead>
+              <tbody>
+                @each((village, index) in villages)
+                  <tr>
+                    <td>{{ index+1 }}</td>
+                    <td>{{ village.name }}</td>
+                    <td>#</td>
+                  </tr>
+                @endeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+@endsection

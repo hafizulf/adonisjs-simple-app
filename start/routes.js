@@ -20,5 +20,6 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 
-Route.get('/village', 'VillageController.index')
-Route.post('/api/v1/village/save', 'VillageController.save_village')
+Route.get('/village', 'VillageController.index').as('village.index')
+Route.get('/village/create', 'VillageController.form_save_village').as('village.create')
+Route.post('/village/save', 'VillageController.save_village').as('village.save')

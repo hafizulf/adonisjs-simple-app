@@ -5,9 +5,20 @@
   <div class="container">
     <div class="row mt-4">
       <div class="col-md-8">
+        <h1>Informasi Desa</h1>
+
+        @if( flashMessage('notification') )
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ flashMessage('notification') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        @endif
+
         <div class="card">
           <div class="card-header">
-            <h1>Informasi Desa</h1>
+            <a href="{{ route('village.create') }}" class="btn btn-primary">+ Tambah Data</a>
           </div>
           <div class="card-body">
             <table class="table table-striped">

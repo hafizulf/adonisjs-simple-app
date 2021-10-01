@@ -1,0 +1,30 @@
+@layout('layouts/main')
+
+@section('body')
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-8">
+
+      <div class="card shadow">
+        <div class="card-header">
+          <h1>Form Tambah Data Desa</h1>
+        </div>
+
+        <div class="card-body">
+          <form action="{{ route('village.save') }}" method="POST">
+            {{ csrfField() }}
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" class="form-control" placeholder="village name">
+            </div>
+            <button class="btn btn-block btn-primary">Save Data</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+@endsection

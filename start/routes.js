@@ -21,3 +21,4 @@ const Route = use('Route')
 Route.on('/').render('welcome')
 
 Route.get('/village', 'VillageController.index')
+Route.post('/api/v1/village/save', 'VillageController.save_village')

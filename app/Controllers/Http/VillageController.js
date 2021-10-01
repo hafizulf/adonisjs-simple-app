@@ -8,18 +8,20 @@ class VillageController {
       'title': 'Informasi Desa'
     }
 
+    const model = new VillageModel()
+
     this.data = data
+    this.model = model
   }
 
-  async index({ Request, response, view }) {
+  async index({ view }) {
     const villages = await VillageModel.all()
 
     return view.render('village.index', { villages: villages.rows, data:  this.data  })
   }
 
   async save_village({ request, response, view }) {
-    const model = new VillageModel()
-
+    const model = this.model
     model.name = request.input('name')
 
     await model.save()

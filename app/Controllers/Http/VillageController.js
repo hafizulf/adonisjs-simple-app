@@ -35,10 +35,28 @@ class VillageController {
     return response.route('village.index')
   }
 
-  async form_update_village({ request, response, view, params }) {
+  async form_update_village({ response, view, params }) {
     const village_id = params.id
     const village = await VillageModel.find(village_id)
-    return response.json(village)
+
+    if (!village) {
+      return response.route('village.index')
+    }
+
+    const title = 'Form ubah - Informasi Desa'
+    return view.render('village.update', { title: title, village: village })
+  }
+
+  async update_village({ request, response, params, session }) {
+    const village_id = request.input('id')
+    const village = await VillageModel.find(village_id)
+
+    village.name = request.input('name')
+
+    await village.save()
+
+    session.flash({ notification: 'Village\'s has been updated' })
+    return response.route('village.index')
   }
 }
 

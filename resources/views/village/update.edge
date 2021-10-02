@@ -1,0 +1,32 @@
+@layout('layouts/main')
+
+@section('body')
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-8">
+
+      <div class="card shadow">
+        <div class="card-header">
+          <h1>Form Ubah Data Desa</h1>
+        </div>
+
+        <div class="card-body">
+          <form action="{{ route('village.update') }}" method="POST">
+            {{ csrfField() }}
+
+            <input type="hidden" name="id" value="{{ village.id }}">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" class="form-control" value="{{ village.name }}">
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">Update Data</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+@endsection

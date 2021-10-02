@@ -34,7 +34,9 @@
                   <tr>
                     <td>{{ index+1 }}</td>
                     <td>{{ village.name }}</td>
-                    <td>#</td>
+                    <td>
+                      <a href="{{ route('village.form_update', { id: village.id }) }}" class="btn btn-success">Update</a>
+                    </td>
                   </tr>
                 @endeach
               </tbody>

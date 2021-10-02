@@ -25,4 +25,4 @@ Route.get('/village/create', 'VillageController.form_save_village').as('village.
 Route.post('/village/save', 'VillageController.save_village').as('village.save')
 Route.get('/village/update/:id', 'VillageController.form_update_village').as('village.form_update')
 Route.post('/village/update', 'VillageController.update_village').as('village.update')
-Route.get('/village/delete/:id', 'VillageController.delete_village').as('village.delete')
+Route.post('/village/delete', 'VillageController.delete_village')

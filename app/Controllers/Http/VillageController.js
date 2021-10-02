@@ -39,8 +39,8 @@ class VillageController {
   }
 
   async update_village({ request, response, session }) {
-    const village_id = request.input('id')
-    const village = await VillageModel.find(village_id)
+    const id = request.input('id')
+    const village = await VillageModel.find(id)
 
     village.name = request.input('name')
 
@@ -50,8 +50,8 @@ class VillageController {
     return response.route('village.index')
   }
 
-  async delete_village({ response, params, session }) {
-    const { id } = params
+  async delete_village({ request, response, session }) {
+    const id = request.input('id')
     const village = await VillageModel.find(id)
 
     await village.delete()

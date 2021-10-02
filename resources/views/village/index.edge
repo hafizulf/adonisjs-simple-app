@@ -36,7 +36,7 @@
                     <td>{{ village.name }}</td>
                     <td>
                       <a href="{{ route('village.form_update', { id: village.id }) }}" class="btn btn-success">Update</a>
-                      <a href="{{ route('village.delete', { id: village.id }) }}" class="btn btn-danger">Delete</a>
+                      <button type="button" data-toggle="modal" data-target="#confirmDelete" data-id="{{ village.id }}" class="btn btn-danger btn-delete">Delete</button>
                     </td>
                   </tr>
                 @endeach
@@ -47,5 +47,32 @@
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="confirmDelete" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="/village/delete" method="POST">
+          <div class="modal-body">
+            {{ csrfField() }}
+            <input type="hidden" name="id">
+            Are you sure want to delete this data?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  $(document).on('click', '.btn-delete', function() {
+    const village_id = $(this).data('id')
+    $('.modal-body input[name="id"]').val(village_id)
+  })
+</script>
 @endsection

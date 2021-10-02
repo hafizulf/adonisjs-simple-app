@@ -27,8 +27,8 @@ class VillageController {
   }
 
   async form_update_village({ response, view, params }) {
-    const village_id = params.id
-    const village = await VillageModel.find(village_id)
+    const { id } = params
+    const village = await VillageModel.find(id)
 
     if (!village) {
       return response.route('village.index')
@@ -38,7 +38,7 @@ class VillageController {
     return view.render('village.update', { title: title, village: village })
   }
 
-  async update_village({ request, response, params, session }) {
+  async update_village({ request, response, session }) {
     const village_id = request.input('id')
     const village = await VillageModel.find(village_id)
 
@@ -47,6 +47,16 @@ class VillageController {
     await village.save()
 
     session.flash({ notification: 'Village\'s has been updated' })
+    return response.route('village.index')
+  }
+
+  async delete_village({ response, params, session }) {
+    const { id } = params
+    const village = await VillageModel.find(id)
+
+    await village.delete()
+
+    session.flash({ notification: 'Village\'s has been deleted' })
     return response.route('village.index')
   }
 }

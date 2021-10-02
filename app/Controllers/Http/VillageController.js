@@ -34,6 +34,12 @@ class VillageController {
     session.flash({ notification: 'Village\'s name has been saved' })
     return response.route('village.index')
   }
+
+  async form_update_village({ request, response, view, params }) {
+    const village_id = params.id
+    const village = await VillageModel.find(village_id)
+    return response.json(village)
+  }
 }
 
 module.exports = VillageController

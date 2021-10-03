@@ -1,31 +1,33 @@
-# Adonis fullstack application
+# Learn - AdonisJS
 
-This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
+## Description
 
-1. Bodyparser
-2. Session
-3. Authentication
-4. Web security middleware
-5. CORS
-6. Edge template engine
-7. Lucid ORM
-8. Migrations and seeds
+CRUD application with simple Authentication developed from the results of learning AdonisJS.
 
-## Setup
+Objective :
+- Retrieve data
+- Saving data (Insert and Update)
+- Delete data
+- Authentication (Sign up, login and logout, user access)
+- Implement UI
 
-Use the adonis command to install the blueprint
+## Stack
+
+- **Node.js** - [website](http://nodejs.org/)
+- **Adonis Js** - [website](https://legacy.adonisjs.com/)
+
+## Quick Start
+
+Clone project and install dependencies:
 
 ```bash
-adonis new yardstick
+git clone https://github.com/hafizulf/learn-adonisjs
+cd learn-adonisjs
+npm install
 ```
 
-or manually clone the repo and then run `npm install`.
+Run app
 
-
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
+```bash
+adonis serve --dev
 ```

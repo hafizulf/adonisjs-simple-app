@@ -21,7 +21,7 @@ async store({ request, response, session }) {
       'username.unique': 'Username sudah terdaftar',
       'email.unique': 'Email sudah terdaftar',
       'email.email': 'Masukkan email yang valid',
-      'password.min': 'Kata sandi terlalu pendek'
+      'password.min': 'Password terlalu pendek'
     }
 
     const validation = await validate(request.all(), rules, messages)

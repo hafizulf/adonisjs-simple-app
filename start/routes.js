@@ -26,4 +26,6 @@ Route.post('/village/save', 'VillageController.save_village').as('village.save')
 Route.get('/village/update/:id', 'VillageController.form_update_village').as('village.form_update')
 Route.post('/village/update', 'VillageController.update_village').as('village.update')
 Route.post('/village/delete', 'VillageController.delete_village')
+
 Route.get('/register', 'Auth/RegisterController.index').as('register.index')
+Route.post('/register', 'Auth/RegisterController.store').as('register.store')

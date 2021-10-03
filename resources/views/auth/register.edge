@@ -3,11 +3,6 @@
 @section('body')
 
 <div class="auth-page">
-  @if( flashMessage('notification') )
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      {{ flashMessage('notification') }}
-    </div>
-  @endif
 
   <div class="form">
     <form action="{{ route('register.store') }}" method="POST">
@@ -24,8 +19,8 @@
         <input type="password" name="password" placeholder="password"/>
         {{ elIf('<span class="text-danger text-sm">$self</span>', getErrorFor('password'), hasErrorFor('password')) }}
       </div>
-      <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
+      <button>sign up</button>
+      <p class="message">Already registered? <a href="{{ route('login.index') }}">Log In</a></p>
     </form>
   </div>
 </div>

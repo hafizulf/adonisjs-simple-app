@@ -5,8 +5,7 @@ const { validate } = use('Validator')
 
 class RegisterController {
   async index({ view }) {
-    const title = 'Registration page'
-    return view.render('auth.register', { title: title })
+    return view.render('auth.register', { title: 'Registration Page' })
   }
 
 async store({ request, response, session }) {
@@ -41,7 +40,7 @@ async store({ request, response, session }) {
     })
 
     session.flash({ notification: 'User has been created, please login' })
-    return response.redirect('back')
+    return response.route('login.index')
   }
 }
 

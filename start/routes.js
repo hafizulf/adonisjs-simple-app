@@ -1,20 +1,5 @@
 'use strict'
 
-const VillageController = require('../app/Controllers/Http/VillageController')
-
-/*
-|--------------------------------------------------------------------------
-| Routes
-|--------------------------------------------------------------------------
-|
-| Http routes are entry points to your web application. You can create
-| routes for different URL's and bind Controller actions to them.
-|
-| A complete guide on routing is available here.
-| http://adonisjs.com/docs/4.1/routing
-|
-*/
-
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
@@ -29,3 +14,4 @@ Route.post('/village/delete', 'VillageController.delete_village')
 
 Route.get('/register', 'Auth/RegisterController.index').as('register.index')
 Route.post('/register', 'Auth/RegisterController.store').as('register.store')
+Route.get('/login', 'Auth/LoginController.index').as('login.index')

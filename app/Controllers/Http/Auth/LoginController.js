@@ -9,10 +9,14 @@ class LoginController {
 
     const { email, password } = request.all()
 
-    await auth.attempt(email, password)
+    try {
+      await auth.attempt(email, password)
 
-    session.flash({ notification: 'Login berhasil' })
-    return response.route('village.index')
+      return response.route('village.index')
+    } catch {
+      session.flash({ alert: 'Invalid credential' })
+      return response.redirect('back')
+    }
   }
 
   async logout({ response, auth }) {

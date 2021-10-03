@@ -15,7 +15,7 @@ Route.group(() => {
   Route.post('/village/update', 'VillageController.update_village').as('village.update')
   Route.post('/village/delete', 'VillageController.delete_village')
 
-  Route.get('/logout', 'Auth/LoginController.logout').as('login.logout')
+  Route.get('/logout', 'Auth/LoginController.logout').as('logout')
 }).middleware(['auth'])
 
 Route.group(() => {

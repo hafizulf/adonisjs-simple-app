@@ -8,7 +8,7 @@ class RegisterController {
     return view.render('auth.register', { title: 'Registration Page' })
   }
 
-async store({ request, response, session }) {
+  async validate_user({ request, response, session }) {
     const rules = {
       username: 'required|unique:users, username',
       email: 'required|email|unique:users, email',
@@ -33,14 +33,18 @@ async store({ request, response, session }) {
       return response.redirect('back')
     }
 
-    const model = await UserModel.create({
+    this.store({ request })
+
+    session.flash({ notification: 'User has been created, please login' })
+    return response.route('login.index')
+  }
+
+  async store({ request }) {
+    await UserModel.create({
       username: request.input('username'),
       email: request.input('email'),
       password: request.input('password'),
     })
-
-    session.flash({ notification: 'User has been created, please login' })
-    return response.route('login.index')
   }
 }
 

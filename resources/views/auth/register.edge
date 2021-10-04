@@ -5,7 +5,7 @@
 <div class="auth-page">
 
   <div class="form">
-    <form action="{{ route('register.store') }}" method="POST">
+    <form action="{{ route('register.register') }}" method="POST">
       {{ csrfField() }}
       <div class="form-group mb-0">
         <input type="text" name="username" placeholder="username" value="{{ old('username', '') }}" />

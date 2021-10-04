@@ -20,7 +20,7 @@ Route.group(() => {
 
 Route.group(() => {
   Route.get('/register', 'Auth/RegisterController.index').as('register.index')
-  Route.post('/register', 'Auth/RegisterController.store').as('register.store')
+  Route.post('/register', 'Auth/RegisterController.validate_user').as('register.register')
   Route.get('/login', 'Auth/LoginController.index').as('login.index')
   Route.post('/login', 'Auth/LoginController.login').as('login.login')
 }).middleware(['guest'])

@@ -26,6 +26,17 @@ cd learn-adonisjs
 npm install
 ```
 
+Setup `.env` and `migration`
+
+```bash
+# copy and configure it
+cp .env.example .env
+
+# create new database, based on .env
+# migrate
+adonis migration:run
+```
+
 Run app
 
 ```bash
